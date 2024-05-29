@@ -1,0 +1,60 @@
+from pyEp import EPProblem, readidf, eprun
+
+from gym import spaces
+import gym.envs
+import numpy as np
+from gym.envs.registration import register
+
+
+class EnergyPlusEnv(gym.Env):
+        def __init__(self, size):
+                self.size = size
+                self.action_space = spaces.Discrete(4)  # low, mid, high. off
+                self.observation_space = spaces.Box(low=np.array([0, -30, 0, 0]), high=np.array([50, 50, 100, 1]),dtype=np.float32) # Define observation space: indoor temp, outdoor temp, energy consumption, occupancy status
+                self.reset()
+                pass
+                print("Action space:", self.action_space)
+                print("Observation space:", self.observation_space)
+
+def step(self, action):
+        # Implement step function
+        # Placeholder implementation for the step function
+        # Here, you would integrate with EnergyPlus to perform a simulation step
+        new_state = np.array([22, 10, 30, 1])  # Example state values
+        reward = -1  # Example reward
+        done = False  # Example termination condition
+        
+        # Print debug information
+        print("Action taken:", action)
+        print("New state:", new_state)
+        print("Reward:", reward)
+        print("Done:", done)
+        
+        # Return the new state, reward, done flag, and additional info
+        return new_state, reward, done, {}
+
+def reset(self):
+        # Implement reset function
+        # Placeholder implementation for the reset function
+        # Here, you would reset the EnergyPlus simulation to the initial state
+        initial_state = np.array([20, 10, 0, 1])  # Example initial state values
+        return initial_state
+
+        # Print debug information
+        print("Environment reset")
+        print("Initial state:", initial_state)
+
+def render(self, mode='human'):
+        # Implement render function
+        pass
+def close(self):
+        # Placeholder implementation for the close function
+        pass
+
+# Register the custom environment with Gym
+gym.envs.register(id='MixedUseHouse', 
+        entry_point='__main__:EnergyPlusEnv')
+
+env = gym.envs.make('MixedUseHouse')
+
+check_env(env)
