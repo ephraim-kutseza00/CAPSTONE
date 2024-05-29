@@ -1,0 +1,307 @@
+! =================================
+! Building Information
+! =================================
+Building,
+    Standard House,       !- Name
+    0,                    !- North Axis {deg}
+    Suburbs,              !- Terrain
+    0.04,                 !- Loads Convergence Tolerance Value
+    0.004,                !- Temperature Convergence Tolerance Value {deltaC}
+    FullExterior,         !- Solar Distribution
+    25,                   !- Maximum Number of Warmup Days
+    6;                    !- Minimum Number of Warmup Days
+
+! =================================
+! Simulation Control
+! =================================
+SimulationControl,
+    No,                   !- Do Zone Sizing Calculation
+    No,                   !- Do System Sizing Calculation
+    No,                   !- Do Plant Sizing Calculation
+    Yes,                  !- Run Simulation for Sizing Periods
+    Yes;                  !- Run Simulation for Weather File Run Periods
+
+! =================================
+! Timestep
+! =================================
+Timestep, 4;
+
+! =================================
+! Site:Location
+! =================================
+Site:Location,
+    Johannesburg,         !- Name
+    -26.2041,             !- Latitude {deg}
+    28.0473,              !- Longitude {deg}
+    2.0,                  !- Time Zone {hr}
+    1753;                 !- Elevation {m}
+
+! =================================
+! Weather File
+! =================================
+Site:WeatherFileLocation,
+    South Africa,         !- Weather File Location Name
+    Johannesburg;         !- Weather File Location
+
+! =================================
+! Materials and Constructions
+! =================================
+Material,
+    Concrete,             !- Name
+    MediumRough,          !- Roughness
+    0.2,                  !- Thickness {m}
+    1.8,                  !- Conductivity {W/m-K}
+    2400,                 !- Density {kg/m3}
+    900;                  !- Specific Heat {J/kg-K}
+
+Material,
+    Insulation,           !- Name
+    Smooth,               !- Roughness
+    0.1,                  !- Thickness {m}
+    0.04,                 !- Conductivity {W/m-K}
+    30,                   !- Density {kg/m3}
+    1400;                 !- Specific Heat {J/kg-K}
+
+Material,
+    Gypsum,               !- Name
+    Smooth,               !- Roughness
+    0.0127,               !- Thickness {m}
+    0.16,                 !- Conductivity {W/m-K}
+    800,                  !- Density {kg/m3}
+    1090;                 !- Specific Heat {J/kg-K}
+
+Construction,
+    Exterior Wall,        !- Name
+    Concrete,             !- Layer 1
+    Insulation,           !- Layer 2
+    Gypsum;               !- Layer 3
+
+Construction,
+    Interior Wall,        !- Name
+    Gypsum,               !- Layer 1
+    Gypsum;               !- Layer 2
+
+Construction,
+    Roof,                 !- Name
+    Concrete,             !- Layer 1
+    Insulation;           !- Layer 2
+
+Construction,
+    Floor,                !- Name
+    Concrete;             !- Layer 1
+
+! =================================
+! Zones
+! =================================
+Zone,
+    Main Bedroom,         !- Name
+    0,                    !- Direction of Relative North {deg}
+    0,                    !- X Origin {m}
+    0,                    !- Y Origin {m}
+    0,                    !- Z Origin {m}
+    1,                    !- Type
+    1,                    !- Multiplier
+    autocalculate,        !- Ceiling Height {m}
+    autocalculate;        !- Volume {m3}
+
+Zone,
+    Office,               !- Name
+    0,                    !- Direction of Relative North {deg}
+    0,                    !- X Origin {m}
+    0,                    !- Y Origin {m}
+    0,                    !- Z Origin {m}
+    1,                    !- Type
+    1,                    !- Multiplier
+    autocalculate,        !- Ceiling Height {m}
+    autocalculate;        !- Volume {m3}
+
+Zone,
+    Bathroom,             !- Name
+    0,                    !- Direction of Relative North {deg}
+    0,                    !- X Origin {m}
+    0,                    !- Y Origin {m}
+    0,                    !- Z Origin {m}
+    1,                    !- Type
+    1,                    !- Multiplier
+    autocalculate,        !- Ceiling Height {m}
+    autocalculate;        !- Volume {m3}
+
+Zone,
+    Kitchen,              !- Name
+    0,                    !- Direction of Relative North {deg}
+    0,                    !- X Origin {m}
+    0,                    !- Y Origin {m}
+    0,                    !- Z Origin {m}
+    1,                    !- Type
+    1,                    !- Multiplier
+    autocalculate,        !- Ceiling Height {m}
+    autocalculate;        !- Volume {m3}
+
+! =================================
+! Building Surfaces
+! =================================
+BuildingSurface:Detailed,
+    Wall1,                !- Name
+    Wall,                 !- Surface Type
+    Exterior Wall,        !- Construction Name
+    Main Bedroom,         !- Zone Name
+    Outdoors,             !- Outside Boundary Condition
+    ,                     !- Outside Boundary Condition Object
+    SunExposed,           !- Sun Exposure
+    WindExposed,          !- Wind Exposure
+    0.5,                  !- View Factor to Ground
+    4,                    !- Number of Vertices
+    0, 0, 3,              !- X,Y,Z ==> Vertex 1 {m}
+    0, 10, 3,             !- X,Y,Z ==> Vertex 2 {m}
+    0, 10, 0,             !- X,Y,Z ==> Vertex 3 {m}
+    0, 0, 0;              !- X,Y,Z ==> Vertex 4 {m}
+
+BuildingSurface:Detailed,
+    Wall2,                !- Name
+    Wall,                 !- Surface Type
+    Exterior Wall,        !- Construction Name
+    Main Bedroom,         !- Zone Name
+    Outdoors,             !- Outside Boundary Condition
+    ,                     !- Outside Boundary Condition Object
+    SunExposed,           !- Sun Exposure
+    WindExposed,          !- Wind Exposure
+    0.5,                  !- View Factor to Ground
+    4,                    !- Number of Vertices
+    10, 0, 3,             !- X,Y,Z ==> Vertex 1 {m}
+    10, 10, 3,            !- X,Y,Z ==> Vertex 2 {m}
+    10, 10, 0,            !- X,Y,Z ==> Vertex 3 {m}
+    10, 0, 0;             !- X,Y,Z ==> Vertex 4 {m}
+
+BuildingSurface:Detailed,
+    Roof1,                !- Name
+    Roof,                 !- Surface Type
+    Roof,                 !- Construction Name
+    Main Bedroom,         !- Zone Name
+    Outdoors,             !- Outside Boundary Condition
+    ,                     !- Outside Boundary Condition Object
+    SunExposed,           !- Sun Exposure
+    WindExposed,          !- Wind Exposure
+    0.5,                  !- View Factor to Ground
+    4,                    !- Number of Vertices
+    0, 0, 3,              !- X,Y,Z ==> Vertex 1 {m}
+    10, 0, 3,             !- X,Y,Z ==> Vertex 2 {m}
+    10, 10, 3,            !- X,Y,Z ==> Vertex 3 {m}
+    0, 10, 3;             !- X,Y,Z ==> Vertex 4 {m}
+
+BuildingSurface:Detailed,
+    Floor1,               !- Name
+    Floor,                !- Surface Type
+    Floor,                !- Construction Name
+    Main Bedroom,         !- Zone Name
+    Ground,               !- Outside Boundary Condition
+    ,                     !- Outside Boundary Condition Object
+    NoSun,                !- Sun Exposure
+    NoWind,               !- Wind Exposure
+    1,                    !- View Factor to Ground
+    4,                    !- Number of Vertices
+    0, 0, 0,              !- X,Y,Z ==> Vertex 1 {m}
+    10, 0, 0,             !- X,Y,Z ==> Vertex 2 {m}
+    10, 10, 0,            !- X,Y,Z ==> Vertex 3 {m}
+    0, 10, 0;             !- X,Y,Z ==> Vertex 4 {m}
+
+! Repeat for other zones (Office, Bathroom, Kitchen) ...
+
+! =================================
+! Schedule:Week:Daily
+! =================================
+Schedule:Week:Daily,
+    Schedule Week,        !- Name
+    Sunday,               !- Day 1 Schedule:Day Name
+    Monday,               !- Day 2 Schedule:Day Name
+    Tuesday,              !- Day 3 Schedule:Day Name
+    Wednesday,            !- Day 4 Schedule:Day Name
+    Thursday,             !- Day 5 Schedule:Day Name
+    Friday,               !- Day 6 Schedule:Day Name
+    Saturday;             !- Day 7 Schedule:Day Name
+
+! =================================
+! Schedule:Year
+! =================================
+Schedule:Year,
+    Schedule Year,        !- Name
+    Schedule Week,        !- Schedule Week Name
+    1,                    !- Start Month
+    1,                    !- Start Day
+    7,                    !- End Month
+    31;                   !- End Day
+
+! =================================
+! HVAC and Equipment
+! =================================
+ZoneHVAC:WindowAirConditioner,
+    Main Bedroom AC,      !- Name
+    always_on,            !- Availability Schedule Name
+    Main Bedroom,         !- Zone Name
+    FanAndCoilAvailSched, !- Air Inlet Node Name
+    AC Outlet Node,       !- Air Outlet Node Name
+    0.5,                  !- Cooling Capacity {W}
+    1.0,                  !- Rated Sensible Heat Ratio
+    0.9,                  !- Rated COP
+    0.4,                  !- Rated Air Flow Rate {m3/s}
+    ,                     !- Fan Speed Control Method
+    ,                     !- Fan Speed Control Ratio Function of Speed Ratio Curve Name
+    0.0,                  !- Fan Heat Fraction of Total Cool Capacity
+    0.9,                  !- Fan Speed Efficiency Ratio
+    ,                     !- Dehumidification Mode
+    ,                     !- Dehumidification Load
+    ;                     !- Maximum Supply Air Humidity Ratio
+
+! =================================
+! Equipment Schedules and Loads
+! =================================
+ElectricEquipment,
+    Office Equipment,     !- Name
+    Office,               !- Zone Name
+    always_on,            !- Schedule Name
+    EquipmentLevel,       !- Design Level Calculation Method
+    200,                  !- Design Level {W}
+    ,                     !- Watts per Zone Floor Area {W/m2}
+    ,                     !- Watts per Person {W/person}
+    0.1,                  !- Fraction Latent
+    0.3,                  !- Fraction Radiant
+    0.1;                  !- Fraction Lost
+
+ElectricEquipment,
+    Kitchen Equipment,    !- Name
+    Kitchen,              !- Zone Name
+    always_on,            !- Schedule Name
+    EquipmentLevel,       !- Design Level Calculation Method
+    1000,                 !- Design Level {W}
+    ,                     !- Watts per Zone Floor Area {W/m2}
+    ,                     !- Watts per Person {W/person}
+    0.2,                  !- Fraction Latent
+    0.4,                  !- Fraction Radiant
+    0.2;                  !- Fraction Lost
+
+! =================================
+! Schedules
+! =================================
+Schedule:Compact,
+    always_on,            !- Name
+    On/Off,               !- Schedule Type Limits Name
+    Through: 12/31,       !- Field 1
+    For: AllDays,         !- Field 2
+    Until: 24:00, 1;      !- Field 3
+
+! =================================
+! Run Period
+! =================================
+RunPeriod,
+    Run Period 1,         !- Name
+    2023,                 !- Begin Year
+    1,                    !- Begin Month
+    1,                    !- Begin Day of Month
+    2023,                 !- End Year
+    7,                    !- End Month
+    31,                   !- End Day of Month
+    Yes,                  !- Day of Week for Start Day
+    Yes,                  !- Use Weather File Holidays and Special Days
+    Yes,                  !- Use Weather File Daylight Saving Period
+    No,                   !- Apply Weekend Holiday Rule
+    Yes,                  !- Use Weather File Rain Indicators
+    Yes;                  !- Use Weather File Snow Indicators

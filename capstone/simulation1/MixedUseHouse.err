@@ -1,0 +1,28 @@
+Program Version,EnergyPlus, Version 23.2.0-7636e6b3e9, YMD=2024.05.28 17:36,
+   ************* Beginning Zone Sizing Calculations
+   ************* Beginning System Sizing Calculations
+   ************* Beginning Plant Sizing Calculations
+   ** Warning ** Check input. Pump nominal power or motor efficiency is set to 0, for pump=SHWSYS1 PUMP
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   ************* Beginning Simulation
+   ** Warning ** Output:Table:Monthly requested with SimulationControl Run Simulation for Weather File Run Periods set to No so Output:Table:Monthly will not be generated
+   ************* Simulation Error Summary *************
+   ** Warning ** The following Report Variables were requested but not generated -- check.rdd file
+   **   ~~~   ** Either the IDF did not contain these elements, the variable name is misspelled,
+   **   ~~~   ** or the requested variable is an advanced output which requires Output : Diagnostics, DisplayAdvancedReportVariables;
+   ************* Key=PEOPLE OCCUPANCY, VarName=SPACE PEOPLE OCCUPANT COUNT, Frequency=Hourly
+   ************* Key=SURPLUS ENERGY, VarName=FACILITY TOTAL SURPLUS ELECTRICITY ENERGY, Frequency=Hourly
+   ************* Key=TOTAL ENERGY, VarName=FACILITY NET PURCHASED ELECTRICITY ENERGY, Frequency=Hourly
+   ************* Key=ELECTRICEQUIPMENT ENERGY, VarName=ELECTRIC EQUIPMENT ELECTRICITY ENERGY, Frequency=Hourly
+   ************* Key=TOTAL HEATING ENERGY, VarName=AIR SYSTEM TOTAL HEATING ENERGY, Frequency=Hourly
+   ************* There are 17 unused objects in input.
+   ************* Use Output:Diagnostics,DisplayUnusedObjects; to see them.
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 3 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  0.75sec
