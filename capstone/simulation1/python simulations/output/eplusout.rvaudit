@@ -1,0 +1,16 @@
+ ReadVarsESO
+ processing:C:\capstone\simulation1\MixedUseHouse_093135.rvi
+ input file:C:\capstone\simulation1\python simulations\output\eplusout.eso
+ output file:C:\capstone\simulation1\python simulations\output\eplusout.csv
+ getting all vars from:C:\capstone\simulation1\python simulations\output\eplusout.eso
+  number variables requested for output=          28
+ ReadVars Run Time=00hr 00min  0.02sec
+ ReadVarsESO program completed successfully.
+ ReadVarsESO
+ processing:C:\capstone\simulation1\MixedUseHouse_093135.mvi
+ input file:C:\capstone\simulation1\python simulations\output\eplusout.mtr
+ output file:C:\capstone\simulation1\python simulations\output\eplusmtr.csv
+ getting all vars from:C:\capstone\simulation1\python simulations\output\eplusout.mtr
+  number variables requested for output=          19
+ ReadVars Run Time=00hr 00min  0.00sec
+ ReadVarsESO program completed successfully.
